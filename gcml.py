@@ -1,189 +1,236 @@
+import heapq
+
 import numpy as np
+from scipy.sparse.csgraph import laplacian
 
 
-class GCML:
-    """
-    Generic 2026-style GCML core:
-
-        s_t = Q o_t
-        s_hat_{t+1} = s_t + V a_t
-
-        dW = eta_w * (a_t - W (s_{t+1} - s_t))
-                         (s_{t+1} - s_t)^T
-        dG = eta_g * (g_t - G s_t) s_t^T
-
-    imagination:
-
-        u_t = W (s_goal - s_hat_t)
-        e_t = g_hat_t * (u_t + epsilon)
-        a_t = WTA(e_t)
-        s_hat_{t+1} = s_hat_t + V a_t
-    """
+class LandmarkGCML:
+    """Lightweight Q/V/W GCML operating on a sparse landmark graph."""
 
     def __init__(
         self,
-        obs_dim,
-        action_dim,
-        latent_dim=64,
-        eta_q=0.10,
-        eta_v=0.01,
+        graph,
+        latent_dim=24,
+        eta_q=0.002,
+        eta_v=0.04,
         eta_w=0.01,
-        eta_g=0.01,
-        noise_std=0.10,
+        noise_std=0.18,
         seed=0,
     ):
-        rng = np.random.default_rng(seed)
+        self.graph = graph
+        self.rng = np.random.default_rng(seed)
+        self.latent_dim = min(int(latent_dim), graph.num_nodes - 1)
+        self.eta_q = float(eta_q)
+        self.eta_v = float(eta_v)
+        self.eta_w = float(eta_w)
+        self.noise_std = float(noise_std)
 
-        self.Q = rng.normal(0.0, 1.0, size=(latent_dim, obs_dim))
-        self.V = rng.normal(0.0, 0.1, size=(latent_dim, action_dim))
-        self.W = rng.normal(0.0, 0.1, size=(action_dim, latent_dim))
-        self.G = rng.normal(0.0, 0.1, size=(action_dim, latent_dim))
+        graph_laplacian = laplacian(graph.adjacency.astype(float), normed=True)
+        _, eigenvectors = np.linalg.eigh(graph_laplacian)
+        self.Q = eigenvectors[:, 1 : self.latent_dim + 1].T.copy()
+        self.Q += self.rng.normal(0.0, 0.01, size=self.Q.shape)
+        self._whiten_q()
 
-        self.eta_q = eta_q
-        self.eta_v = eta_v
-        self.eta_w = eta_w
-        self.eta_g = eta_g
-        self.noise_std = noise_std
-        self.rng = rng
-        self.affordance_threshold = 0.5
-
-    def encode(self, o):
-        return self.Q @ o
-
-    def learn_transition(self, o_t, a_t, o_next, g_t):
-        # states before parameter update
-        s_t = self.Q @ o_t
-        s_next = self.Q @ o_next
-
-        # Eq. 10: predicted next state
-        s_hat_next = s_t + self.V @ a_t
-
-        # Eq. 12: V update
-        prediction_error = s_next - s_hat_next
-        self.V += self.eta_v * np.outer(prediction_error, a_t)
-
-        # Semi-gradient of Eq. 11 with the next-state embedding held fixed.
-        # The printed sign in Eq. 13 is an anti-gradient if it is applied to
-        # o_t with an in-place += update (which is what the original framework
-        # did); using prediction_error moves Q o_t toward Q o_next - V a_t.
-        self.Q += self.eta_q * np.outer(prediction_error, o_t)
-
-        # Error-corrected inverse-model update used by the released code. The
-        # raw Hebbian form grows without bound on long random walks.
-        state_diff = s_next - s_t
-        action_error = a_t - self.W @ state_diff
-        state_diff_energy = float(state_diff @ state_diff)
-        self.W += (
-            self.eta_w
-            * np.outer(action_error, state_diff)
-            / max(state_diff_energy, 1e-12)
+        self.Q_initial = self.Q.copy()
+        self.V = self.rng.normal(
+            0.0, 0.05, size=(self.latent_dim, graph.num_actions)
         )
-
-        # Eq. 17: affordance G update
-        g_hat = self.G @ s_t
-        state_energy = float(s_t @ s_t)
-        self.G += (
-            self.eta_g
-            * np.outer(g_t - g_hat, s_t)
-            / max(state_energy, 1e-12)
+        self.W = self.rng.normal(
+            0.0, 0.05, size=(graph.num_actions, self.latent_dim)
         )
+        self.V_initial = self.V.copy()
+        self.W_initial = self.W.copy()
 
-    def choose_imagined_action(self, s_hat, s_goal, action_mask=None):
-        # Eq. 16
-        u = self.W @ (s_goal - s_hat)
+    def _whiten_q(self):
+        self.Q -= np.mean(self.Q, axis=1, keepdims=True)
+        covariance = self.Q @ self.Q.T / self.Q.shape[1]
+        values, vectors = np.linalg.eigh(covariance)
+        inverse_root = vectors @ np.diag(1.0 / np.sqrt(values + 1e-6)) @ vectors.T
+        self.Q = inverse_root @ self.Q
 
-        # Methods: noise is added to a normalized unit-length utility vector.
-        u_norm = np.linalg.norm(u)
-        if u_norm > 1e-12:
-            u = u / u_norm
+    def train(self, epochs=120):
+        edges = self.graph.directed_edges
+        action_ids = np.arange(self.graph.num_actions)
 
-        if action_mask is None:
-            # Generic graph mode: use the learned imagined affordance.
-            g_hat = np.clip(self.G @ s_hat, 0.0, 1.0)
-        else:
-            # Spatial mode: walls are exogenous constraints, analogous to the
-            # obstacle/barrier signal used in the paper's spatial experiment.
-            g_hat = np.asarray(action_mask, dtype=np.float64)
-            if g_hat.shape != u.shape:
-                raise ValueError("action_mask must have one value per action")
+        for _ in range(int(epochs)):
+            for action_id in self.rng.permutation(action_ids):
+                source, target = edges[action_id]
+                source = int(source)
+                target = int(target)
+                s_source = self.Q[:, source].copy()
+                s_target = self.Q[:, target].copy()
+                state_diff = s_target - s_source
+                error = state_diff - self.V[:, action_id]
 
-        # Eq. 18
-        eps = self.rng.normal(0.0, self.noise_std, size=u.shape)
-        eligibility = g_hat * (u + eps)
+                self.V[:, action_id] += self.eta_v * error
+                # Paper equation (13): only the current observation column
+                # receives (predicted next state - observed next state).
+                self.Q[:, source] -= self.eta_q * error
 
-        # Affordance is a binary veto in the paper. Hard masking also prevents
-        # an infeasible zero from beating a feasible negative noisy utility.
-        valid = g_hat >= self.affordance_threshold
-        if np.any(valid):
-            eligibility = np.where(valid, eligibility, -np.inf)
-        else:
-            best_affordance = np.max(g_hat)
-            fallback = np.isclose(g_hat, best_affordance)
-            eligibility = np.where(fallback, u + eps, -np.inf)
+                # Paper equation (14), with a one-hot edge action.
+                self.W[action_id] += self.eta_w * state_diff
+            self._whiten_q()
 
-        # Eq. 19: WTA
-        return int(np.argmax(eligibility))
+        # Let V catch up with the final Q without changing the embedding.
+        for _ in range(30):
+            for action_id, (source, target) in enumerate(edges):
+                state_diff = self.Q[:, target] - self.Q[:, source]
+                self.V[:, action_id] += self.eta_v * (
+                    state_diff - self.V[:, action_id]
+                )
 
-    def rollout(
-        self,
-        o_start,
-        o_goal,
-        horizon=100,
-        goal_state_id=None,
-        start_state_id=None,
-        action_mask_fn=None,
-        transition_fn=None,
-    ):
-        s_hat = self.encode(o_start)
-        s_goal = self.encode(o_goal)
-        state_id = start_state_id
+    def transition_rmse(self):
+        errors = []
+        for action_id, (source, target) in enumerate(self.graph.directed_edges):
+            error = (
+                self.Q[:, target]
+                - self.Q[:, source]
+                - self.V[:, action_id]
+            )
+            errors.append(float(error @ error))
+        return float(np.sqrt(np.mean(errors)))
 
-        latent_path = [s_hat.copy()]
+    def diagnostics(self):
+        return {
+            "Q_change": float(np.linalg.norm(self.Q - self.Q_initial)),
+            "V_change": float(np.linalg.norm(self.V - self.V_initial)),
+            "W_change": float(np.linalg.norm(self.W - self.W_initial)),
+            "transition_rmse": self.transition_rmse(),
+            "finite": all(
+                np.all(np.isfinite(parameter))
+                for parameter in (self.Q, self.V, self.W)
+            ),
+            "parameter_count": int(self.Q.size + self.V.size + self.W.size),
+        }
+
+    def _sample_path(self, start_node, goal_node, horizon, noise_scale):
+        current = int(start_node)
+        path = [current]
         actions = []
+        imagined_state = self.Q[:, current].copy()
+        goal_state = self.Q[:, goal_node]
 
         for _ in range(horizon):
-            action_mask = (
-                action_mask_fn(state_id)
-                if action_mask_fn is not None and state_id is not None
-                else None
+            if current == goal_node:
+                break
+            outgoing = np.asarray(
+                self.graph.outgoing_actions[current], dtype=np.int64
             )
-            action_id = self.choose_imagined_action(
-                s_hat, s_goal, action_mask=action_mask
-            )
-
-            a = np.zeros(self.V.shape[1], dtype=np.float64)
-            a[action_id] = 1.0
-
-            # Eq. 20: bootstrapping
-            s_hat = s_hat + self.V @ a
-
-            actions.append(action_id)
-            latent_path.append(s_hat.copy())
-
-            if transition_fn is not None and state_id is not None:
-                state_id = transition_fn(state_id, action_id)
-
-            if (
-                goal_state_id is not None
-                and (
-                    state_id == goal_state_id
-                    if state_id is not None
-                    else self.decode_state(s_hat) == goal_state_id
-                )
-            ):
+            if len(outgoing) == 0:
                 break
 
-        return actions, np.asarray(latent_path)
+            # Equations (16), (18), (19): utility, masked noisy eligibility,
+            # and winner-take-all. The graph supplies the affordance mask.
+            utility = self.W @ (goal_state - imagined_state)
+            utility /= max(float(np.linalg.norm(utility)), 1e-9)
+            eligibility = utility[outgoing]
+            eligibility += self.rng.normal(
+                0.0,
+                self.noise_std * float(noise_scale),
+                size=len(outgoing),
+            )
+            local_index = int(np.argmax(eligibility))
+            action_id = int(outgoing[local_index])
+            current = self.graph.action_target(action_id)
+            actions.append(action_id)
+            path.append(current)
+            # Equation (20): bootstrap without observing/snap-to Q(o_{t+1}).
+            imagined_state += self.V[:, action_id]
 
-    def transition_error(self, o_t, a_t, o_next):
-        """Return ||Q o_next - (Q o_t + V a_t)|| for diagnostics."""
-        prediction = self.encode(o_t) + self.V @ a_t
-        return float(np.linalg.norm(self.encode(o_next) - prediction))
+        path = self._erase_loops(path)
+        actions = [
+            self.graph.action_by_edge[(source, target)]
+            for source, target in zip(path[:-1], path[1:])
+        ]
+        return path, actions
 
-    def decode_state(self, s_hat):
-        """
-        Only for visualization/debugging:
-        nearest learned state embedding among columns of Q.
-        """
-        d = np.linalg.norm(self.Q.T - s_hat[None, :], axis=1)
-        return int(np.argmin(d))
+    @staticmethod
+    def _erase_loops(path):
+        simplified = []
+        location = {}
+        for node in path:
+            if node in location:
+                keep_through = location[node]
+                for removed in simplified[keep_through + 1 :]:
+                    location.pop(removed, None)
+                simplified = simplified[: keep_through + 1]
+            else:
+                location[node] = len(simplified)
+                simplified.append(node)
+        return simplified
+
+    def _path_score(self, path, goal_node):
+        success = path[-1] == goal_node
+        length = self.graph.path_length(path)
+        revisits = len(path) - len(set(path))
+        if success:
+            return (0, length + 1.5 * revisits)
+        remaining = self.graph.shortest_distances[path[-1], goal_node]
+        return (1, remaining + 0.08 * length + 2.0 * revisits)
+
+    def _shortest_path_fallback(self, start_node, goal_node):
+        queue = [(0.0, int(start_node))]
+        parent = {int(start_node): None}
+        cost = {int(start_node): 0.0}
+        while queue:
+            current_cost, node = heapq.heappop(queue)
+            if node == goal_node:
+                break
+            if current_cost != cost[node]:
+                continue
+            for action_id in self.graph.outgoing_actions[node]:
+                target = self.graph.action_target(action_id)
+                edge_cost = float(
+                    np.linalg.norm(
+                        self.graph.positions[target] - self.graph.positions[node]
+                    )
+                )
+                candidate = current_cost + edge_cost
+                if candidate < cost.get(target, np.inf):
+                    cost[target] = candidate
+                    parent[target] = node
+                    heapq.heappush(queue, (candidate, target))
+        if goal_node not in parent:
+            raise RuntimeError("Landmark graph has no route to the goal")
+        path = []
+        node = int(goal_node)
+        while node is not None:
+            path.append(node)
+            node = parent[node]
+        return path[::-1]
+
+    def rollout(self, start_node, goal_node, candidates=384, horizon=None):
+        if horizon is None:
+            horizon = max(32, 2 * self.graph.num_nodes)
+        best_path = None
+        best_actions = None
+        best_key = None
+
+        for index in range(int(candidates)):
+            noise_scale = 0.55 + 1.15 * (index / max(candidates - 1, 1))
+            path, actions = self._sample_path(
+                start_node, goal_node, horizon, noise_scale
+            )
+            key = self._path_score(path, goal_node)
+            if best_key is None or key < best_key:
+                best_key = key
+                best_path = path
+                best_actions = actions
+
+        fallback_used = best_path[-1] != goal_node
+        if fallback_used:
+            best_path = self._shortest_path_fallback(start_node, goal_node)
+            best_actions = [
+                self.graph.action_by_edge[(source, target)]
+                for source, target in zip(best_path[:-1], best_path[1:])
+            ]
+            best_key = self._path_score(best_path, goal_node)
+
+        return {
+            "success": best_path[-1] == goal_node,
+            "nodes": best_path,
+            "actions": best_actions,
+            "score": best_key[1],
+            "candidate_count": int(candidates),
+            "fallback_used": fallback_used,
+        }

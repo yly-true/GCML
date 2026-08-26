@@ -1,327 +1,185 @@
-# GCML + MiniGrid FourRooms
+# Sparse Landmark GCML
 
-这是一个把 2026 年 GCML（Generative Cognitive Map Learner）通用机制应用到
-官方 `MiniGrid-FourRooms-v0` 地图的紧凑研究框架。模型通过随机探索学习认知地图，
-随后仅在隐空间中生成到目标的 stochastic rollout，再把想象出的动作序列放回
-FourRooms 转移图执行。
+这是一个轻量的连续导航实验：不再把大地图中的每个网格都定义成状态，也不再使用 FourRooms。程序自己生成一张 `100 x 100` 的连续二维地图，只在关键通道和开阔区域放置少量地标；GCML 在地标图上训练 `Q/V/W`，最后用随机 B 样条 rollout 把地标折线变成可执行的平滑曲线。
 
-当前版本用于验证一个核心问题：`Q` 和 `V` 是否能学出满足动作位移关系的
-FourRooms 认知地图。它不是论文全部实验的逐行复现。
+默认实验中，10,000 个地图单元只产生约 90 个地标和约 400 个有向动作。代码只依赖 NumPy、SciPy 和 Matplotlib，不需要 TensorFlow。
 
-## 安装与运行
+## 运行
 
 ```bash
+conda activate tf215_gpu
 pip install -r requirements.txt
 python train.py
 ```
 
-运行结束后会生成 `fourrooms_gcml.png`。一次固定种子运行的典型输出为：
+随机起终点，并且随机堵住**一个**通道：
 
-```text
-states: 260
-start : (3, 15)
-goal  : (13, 12)
-transition RMSE: 0.1334
-learned G accuracy (diagnostic only): 87.69%
-planning affordance: official FourRooms wall mask
-finite parameters: True
-imagined action count: 13
-execution success: True
+```bash
+python train.py --random-task --block-passage --seed 3 --output landmark_gcml_blocked.png
 ```
 
-## 为什么需要 FourRooms wrapper？
-
-MiniGrid 原生动作空间包含：
+常用参数：
 
 ```text
-left / right / forward / pickup / drop / toggle / done
+--width / --height       地图尺寸，最小为 40
+--coverage-radius        地标覆盖半径；越大，地标越少
+--max-landmarks          地标数量上限
+--latent-dim             GCML 状态维数 d
+--epochs                 Q/V/W 训练轮数
+--graph-rollouts         高层随机 rollout 数量
+--spline-rollouts        连续曲线候选数量
+--random-task            随机起点和终点
+--block-passage          随机且只封堵一个通道
 ```
 
-其中 `forward` 的空间效果依赖智能体朝向。同一个动作可能向上、下、左或右移动，
-不符合当前 GCML 线性 forward model 的固定 action displacement 假设：
+运行后会保存导航图。默认示例为 `landmark_gcml.png`。
 
-$$
-\hat{\mathbf s}_{t+1}\approx
-\mathbf s_t+\mathbf V\mathbf a_t.
-$$
+生成 10 组随机检查图；每一组独立随机起终点，并且恰好堵住一个通道：
 
-因此 `FourRoomsDiscrete` 保留官方 MiniGrid 生成的地图、墙体、门洞、起点和目标，
-但将控制接口转换为四个绝对动作：
+```bash
+python check.py
+```
 
-$$
-\mathcal A=\{\text{up},\text{down},\text{left},\text{right}\}.
-$$
+输出为 `check_10_blocked.png`。检查脚本复用同一套实现，只把训练轮数和候选数调低以缩短批量验证时间。
 
-状态和动作均使用 one-hot 表示：
+## 1. 为什么使用稀疏地标
 
-$$
-\mathbf o_t\in\{0,1\}^{N},\qquad
-\mathbf a_t\in\{0,1\}^{4},
-$$
+若地图包含 `N` 个离散状态和 `A` 个离散动作，原始表格式模型需要
 
-其中 $N$ 是当前地图中的可通行格子数。若动作会撞墙，wrapper 的状态保持不变；
-训练随机探索只采样当前可执行的动作。
+\[
+Q\in\mathbb R^{d\times N},\qquad
+V\in\mathbb R^{d\times A},\qquad
+W\in\mathbb R^{A\times d}.
+\]
 
-## 参数与维度
+地图变大后，`N` 和逐点动作数会快速增加；规划结果也天然是一段段直线。
 
-设隐空间维度为 $d$、观察数为 $N$、动作数为 $A=4$：
+本实现只选择 `M` 个地标，且 `M\ll N`。通道中心被保留为必要地标，房间内部使用最远点采样（farthest-point sampling）补足覆盖。只有视线无碰撞、距离足够近的地标才连边。若每个地标至多连接 `k` 个邻居，则有向边数 `E=O(kM)`，模型变为
 
-| 参数 | 维度 | 作用 |
-| --- | --- | --- |
-| $\mathbf Q$ | $d\times N$ | 把 one-hot 观察编码为隐状态 |
-| $\mathbf V$ | $d\times A$ | 把动作编码为隐空间位移 |
-| $\mathbf W$ | $A\times d$ | inverse model，把状态差映射为动作 utility |
-| $\mathbf G$ | $A\times d$ | 预测当前状态下的动作 affordance |
+\[
+Q\in\mathbb R^{d\times M},\qquad
+V\in\mathbb R^{d\times E},\qquad
+W\in\mathbb R^{E\times d}.
+\]
 
-初始化遵循论文的量级：
+因此模型规模主要由地图的拓扑复杂度决定，而不是由地图面积或网格精度直接决定。起点和终点是连续坐标，只在规划时临时连接到可见地标，并不会扩大 `Q/V/W`。
 
-$$
-\mathbf Q\sim\mathcal N(0,1),\qquad
-\mathbf V,\mathbf W,\mathbf G\sim\mathcal N(0,0.1).
-$$
+## 2. 状态、动作与观测
 
-默认学习率为：
+- 连续物理状态：位置 \(p=(x,y)\in\mathbb R^2\)。它用于碰撞检测和曲线执行。
+- 高层状态：当前地标 \(i\)，其 one-hot 观测为 \(o_i\in\mathbb R^M\)。
+- GCML 状态：
 
-$$
-\eta_q=0.1,\qquad
-\eta_v=\eta_w=\eta_g=0.01.
-$$
+\[
+s_i=Qo_i=Q_{:i}\in\mathbb R^d.
+\]
 
-## 1. 状态编码与 forward model
+- 高层动作：沿一条可见图边 \(a=(i\rightarrow j)\) 前往相邻地标。它不是“每个像素走一步”，而是一段局部可达运动。
+- 低层动作：B 样条上的连续位置/速度指令；本示例生成轨迹，不绑定具体机器人动力学。
 
-观察首先由 $\mathbf Q$ 编码：
+这里即使物理位置只有二维，GCML 观测也不是直接把 `(x,y)` 送入一个二维点积。`Q` 学到的是稀疏拓扑图上的 `d` 维状态表示，所以隔墙但欧氏距离很近的两个位置可以在表示中相距很远。
 
-$$
-\boxed{\mathbf s_t=\mathbf Q\mathbf o_t}.
-$$
+## 3. Q/V/W 的训练
 
-给定动作 $\mathbf a_t$，模型预测下一个隐状态：
+每条有向地标边给出一个转移样本 \((i,a,j)\)。按照 GCML 的线性状态转移假设：
 
-$$
-\boxed{
-\hat{\mathbf s}_{t+1}
-=\mathbf s_t+\mathbf V\mathbf a_t
-}.
-$$
-
-真实下一观察的当前隐空间表示为：
-
-$$
-\mathbf s_{t+1}=\mathbf Q\mathbf o_{t+1}.
-$$
-
-因此 transition prediction error 是：
-
-$$
-\boldsymbol\delta_t
-=\mathbf s_{t+1}-\hat{\mathbf s}_{t+1}.
-$$
-
-## 2. 学习 $Q$ 和 $V$
-
-动作 embedding 使用 delta rule：
-
-$$
-\boxed{
-\mathbf V\leftarrow\mathbf V
-+\eta_v\boldsymbol\delta_t\mathbf a_t^\top
-}.
-$$
-
-当前实现对 $Q$ 使用式 (11) 对应的 semi-gradient，把
-$\mathbf Q\mathbf o_t$ 朝 $\mathbf Q\mathbf o_{t+1}-\mathbf V\mathbf a_t$
-移动：
-
-$$
-\boxed{
-\mathbf Q\leftarrow\mathbf Q
-+\eta_q\boldsymbol\delta_t\mathbf o_t^\top
-}.
-$$
-
-这里不能直接把论文式 (13) 中的
-$(\hat{\mathbf s}_{t+1}-\mathbf s_{t+1})\mathbf o_t^\top$
-通过 `Q += ...` 写入当前列，否则会成为反梯度，使误差、参数范数和 `G` 依次发散。
-
-训练后的 transition 诊断遍历所有可执行边，计算：
-
-$$
-\operatorname{RMSE}_{\text{transition}}
-=\sqrt{\frac{1}{|\mathcal E|}
-\sum_{(s,a,s')\in\mathcal E}
-\left\|
-\mathbf Q\mathbf o_{s'}-
-(\mathbf Q\mathbf o_s+\mathbf V\mathbf a)
-\right\|_2^2}.
-$$
-
-## 3. 学习 inverse model $W$
-
-一次真实转移产生局部状态差：
-
-$$
-\Delta\mathbf s_t=\mathbf s_{t+1}-\mathbf s_t.
-$$
-
-$\mathbf W$ 应从这个状态差恢复导致它的动作：
-
-$$
-\hat{\mathbf a}_t=\mathbf W\Delta\mathbf s_t,
+\[
+s_i=Qo_i,
 \qquad
-\mathbf r_t=\mathbf a_t-\hat{\mathbf a}_t.
-$$
+\hat s_j=s_i+Va,
+\]
 
-当前实现使用官方代码采用的 error-corrected inverse learning，并针对逐样本在线
-更新使用 normalized LMS 步长：
+其中 \(a\in\mathbb R^E\) 是动作 one-hot。转移误差为
 
-$$
-\boxed{
-\mathbf W\leftarrow\mathbf W+
-\eta_w
-\frac{\mathbf r_t\Delta\mathbf s_t^\top}
-{\max(\|\Delta\mathbf s_t\|_2^2,\varepsilon_0)}
-}.
-$$
+\[
+\delta_{iaj}=Q_{:j}-Q_{:i}-V_{:a}.
+\]
 
-归一化只调节有效步长，不改变 $\mathbf W\Delta\mathbf s_t=\mathbf a_t$
-这一固定点，同时避免高维隐向量让单步更新爆炸。
+程序按论文公式 (12) 和 (13) 对每条边执行局部更新：
 
-## 4. 学习 affordance model $G$
+\[
+V_{:a}\leftarrow V_{:a}+\eta_V\delta_{iaj},
+\]
 
-wrapper 可为每个真实状态提供二值可行动作向量：
+\[
+Q_{:i}\leftarrow Q_{:i}-\eta_Q\delta_{iaj},\qquad
+Q_{:j}\text{ 不在该样本中更新}.
+\]
 
-$$
-\mathbf g_t\in\{0,1\}^{4}.
-$$
+也就是把“预测下一状态减真实下一状态”写入当前观测列。每轮之后对 `Q` 做中心化和白化，防止所有状态坍缩到同一点。`W` 按论文公式 (14) 进行 Hebbian 学习；由于 \(a\) 是 one-hot，只有当前动作行被更新：
 
-线性 affordance prediction 为：
+\[
+\Delta s_{ij}=Q_{:j}-Q_{:i},
+\]
 
-$$
-\hat{\mathbf g}_t=\mathbf G\mathbf s_t.
-$$
+\[
+W_{a:}\leftarrow W_{a:}
++\eta_W\Delta s_{ij}^{\mathsf T}.
+\]
 
-其 normalized LMS 更新为：
+所以 `Q`、`V` 和 `W` 都会被实际更新。训练结束时程序打印三者相对初始化的变化量，以及
 
-$$
-\boxed{
-\mathbf G\leftarrow\mathbf G+
-\eta_g
-\frac{(\mathbf g_t-\mathbf G\mathbf s_t)\mathbf s_t^\top}
-{\max(\|\mathbf s_t\|_2^2,\varepsilon_0)}
-}.
-$$
+\[
+\operatorname{RMSE}
+=\sqrt{\frac1E\sum_{(i,a,j)}
+\|Q_{:j}-Q_{:i}-V_{:a}\|^2}.
+\]
 
-但是，当前 FourRooms 默认规划不使用学习到的 $G$。原因是这里只有 4 个全局共享
-动作，而不连续墙段和门洞对应的 affordance 在近似空间坐标中通常不是线性可分的。
-论文的通用图实验为每条有向边分配独立 action，因此不存在完全相同的问题。
+## 4. 高层 stochastic rollout
 
-本项目仍训练和报告 $G$ 的 accuracy，便于研究后续非线性 affordance、place-cell
-features 或其他障碍编码，但默认把官方 FourRooms 地图的二值墙体 mask 作为空间
-实验的外部障碍约束。这类似论文空间实验中单独提供的 object/barrier constraint。
+目标地标为 \(g\)，当前地标为 \(i\)。核心驱动仍然是
 
-## 5. Goal-directed stochastic rollout
+\[
+u_i=W(s_g-s_i),
+\]
 
-给定起点观察 $\mathbf o_0$ 和目标观察 $\mathbf o^*$：
+程序先把完整 utility 向量归一化，再用当前地标真实出边作为 affordance 掩码。这里不额外训练 `G`；稀疏图已经精确给出了哪些动作当前可执行。对可行动作加入高斯噪声：
 
-$$
-\hat{\mathbf s}_0=\mathbf Q\mathbf o_0,
+\[
+e_{i,a}=\hat g_{i,a}\left(u_{i,a}+\epsilon_a\right),
 \qquad
-\mathbf s^*=\mathbf Q\mathbf o^*.
-$$
+\epsilon_a\sim\mathcal N(0,\sigma^2).
+\]
 
-每个想象步首先用 inverse model 计算动作 utility：
+然后按照论文公式 (19) 进行 winner-take-all：
 
-$$
-\boxed{
-\mathbf u_t=\mathbf W(\mathbf s^*-\hat{\mathbf s}_t)
-}.
-$$
+\[
+a_t=\operatorname{WTA}(e_i).
+\]
 
-按照论文 Methods，在加入噪声前先将非零 utility 归一化：
+想象状态不会在每一步重新读取地标观测，而是严格使用论文公式 (20) 自举：
 
-$$
-\bar{\mathbf u}_t=
-\frac{\mathbf u_t}{\|\mathbf u_t\|_2}.
-$$
+\[
+\hat s_{t+1}=\hat s_t+Va_t.
+\]
 
-采样高斯噪声：
+一次规划采样多条候选。到达目标的轨迹优先，再按几何长度评分；未到达者还会受到剩余图距离惩罚。轨迹中的回环会被消除。如果所有随机候选都失败，才使用图最短路作为安全兜底，并在输出中明确打印 `shortest-path fallback used`。
 
-$$
-\boldsymbol\epsilon_t\sim
-\mathcal N(\mathbf 0,\sigma^2\mathbf I).
-$$
+## 5. 从地标到平滑曲线
 
-用 affordance mask $\mathbf g_t$ 得到 eligibility：
+高层只负责决定“依次经过哪些拓扑区域”。对地标序列加密为控制点 \(c_i\)，构造三次 B 样条：
 
-$$
-\boxed{
-\mathbf e_t=\mathbf g_t\odot
-(\bar{\mathbf u}_t+\boldsymbol\epsilon_t)
-}.
-$$
+\[
+p(t)=\sum_i B_{i,3}(t)c_i,\qquad t\in[0,1].
+\]
 
-不可执行动作还会被硬 mask 为 $-\infty$，避免 utility 为负时，零 eligibility 的
-撞墙动作反而赢过合法动作。随后执行 winner-take-all：
+程序随机扰动位于开阔区的内部控制点，并改变平滑量，生成多条曲线候选。每条曲线使用地图的距离场计算
 
-$$
-\boxed{
-\mathbf a_t=\operatorname{WTA}(\mathbf e_t)
-}.
-$$
+\[
+J=10^5J_{\text{collision}}
++L(p)+0.35J_{\text{curvature}}
++2J_{\text{wall}}.
+\]
 
-最后不读取下一时刻环境观察，而是使用 $V$ 进行内部 bootstrapping：
+其中 `collision` 是安全距离违反量，\(L(p)\) 是曲线长度，`curvature` 抑制急转弯，`wall` 偏好更大的墙面间距。评分最低的无碰撞曲线被选中。这样，拓扑搜索仍由 Q/V/W 完成，而平滑性不会迫使状态或动作表随轨迹分辨率膨胀。
 
-$$
-\boxed{
-\hat{\mathbf s}_{t+1}
-=\hat{\mathbf s}_t+\mathbf V\mathbf a_t
-}.
-$$
+## 6. 代码结构
 
-循环持续到规划状态到达目标或超过 `horizon`。改变随机种子或 `noise_std` 会得到
-不同但仍受目标方向约束的动作序列。
+- `navigation_map.py`：自建连续地图、距离场、碰撞检测、随机封堵一个通道。
+- `landmarks.py`：自动地标选择、稀疏可视图、连续起终点连接。
+- `gcml.py`：Q/V/W 训练和高层 stochastic rollout。
+- `spline_planner.py`：B 样条候选生成、碰撞/长度/曲率评分。
+- `train.py`：训练、规划、日志和可视化入口。
+- `check.py`：一次生成 10 组“随机起终点 + 单通道封堵”的检查图。
 
-## 6. 当前有没有 play 过程？
-
-有“生成后执行”，但目前没有交互式或逐帧 MiniGrid GUI play。
-
-当前 `train.py` 包含三个阶段：
-
-1. `train(...)`：在 FourRooms 中随机探索，学习 `Q/V/W/G`。
-2. `imagined_path(...)`：从起点到目标进行隐空间 stochastic rollout，产生动作序列。
-3. `execute_actions(...)`：从真实起点重新开始，在 wrapper 的真实转移图上依次 replay
-   想象动作，检测是否到达目标，并把 executed path 交给 `plot(...)`。
-
-因此当前的 play 是无界面的离散 replay：
-
-```text
-random exploration -> imagined rollout -> execute/replay actions -> plot result
-```
-
-`fourrooms_gcml.png` 同时绘制：
-
-- `imagined`：每个内部状态通过最近 `Q` embedding 解码得到的路径；
-- `executed`：同一动作序列在真实 FourRooms 转移图上的路径；
-- `start` 和 `goal`；
-- 官方地图的墙体和门洞。
-
-如果需要人眼可见的实时 play，还需要增加一个独立入口，将绝对动作转换为
-MiniGrid 原生的转向/前进动作，逐步调用 `env.step(...)`，并通过 `render_mode="human"`
-显示动画。这个实时动画层目前尚未实现，也不参与现有训练和成功率验证。
-
-## 代码结构
-
-- `env_wrapper.py`：官方 FourRooms 地图、one-hot 状态/动作、绝对动作转移和墙体 mask。
-- `gcml.py`：`Q/V/W/G` 学习、utility、noise、WTA 与 imagined bootstrap。
-- `train.py`：随机探索、诊断、rollout、动作 replay 和结果绘图。
-- `requirements.txt`：Python 依赖。
-
-## 已验证行为
-
-当前固定地图和训练种子下：
-
-- 所有参数保持有限，不再出现 overflow 或 `NaN`；
-- 主程序可以生成成功到达目标的动作序列；
-- 对同一个已训练模型测试 50 个 rollout 噪声种子，成功率为 `50/50`；
-- 动作序列长度为 13 到 21 步；
-- Python 语法检查通过。
+默认 `100 x 100` 实验约使用 2.2 万个 Q/V/W 参数，而不是为 10,000 个网格状态和所有逐点动作建表。调大地图时可以先增大 `--coverage-radius` 保持地标稀疏；只有地图拓扑变复杂时再提高 `--max-landmarks`。

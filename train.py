@@ -1,165 +1,255 @@
-import numpy as np
+import argparse
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+import numpy as np
 
-from env_wrapper import FourRoomsDiscrete
-from gcml import GCML
+from gcml import LandmarkGCML
+from landmarks import LandmarkGraph
+from navigation_map import LargeNavigationMap
+from spline_planner import SplineRolloutPlanner
 
 
-def train(env, model, steps=100_000, seed=0):
-    rng = np.random.default_rng(seed)
-    state_id = rng.integers(env.num_states)
-
-    for _ in range(steps):
-        g = env.affordance(state_id)
-        feasible = np.flatnonzero(g > 0)
-
-        if len(feasible) == 0:
-            state_id = rng.integers(env.num_states)
-            continue
-
-        action_id = int(rng.choice(feasible))
-        next_id = env.transition(state_id, action_id)
-
-        model.learn_transition(
-            env.obs(state_id),
-            env.action_one_hot(action_id),
-            env.obs(next_id),
-            g,
+def run(args):
+    navigation_map = LargeNavigationMap(
+        width=args.width,
+        height=args.height,
+        seed=args.seed,
+    )
+    blocked_passage = None
+    if args.block_passage:
+        blocked_passage = navigation_map.block_random_passage(
+            np.random.default_rng(args.seed + 100)
         )
 
-        state_id = next_id
-
-        # occasional restart for broader exploration
-        if rng.random() < 0.01:
-            state_id = rng.integers(env.num_states)
-
-
-def imagined_path(env, model, horizon=100):
-    actions, latent_states = model.rollout(
-        env.obs(env.start_id),
-        env.obs(env.goal_id),
-        horizon=horizon,
-        goal_state_id=env.goal_id,
-        start_state_id=env.start_id,
-        action_mask_fn=env.affordance,
-        transition_fn=env.transition,
+    graph = LandmarkGraph(
+        navigation_map,
+        coverage_radius=args.coverage_radius,
+        max_landmarks=args.max_landmarks,
+        seed=args.seed,
     )
+    model = LandmarkGCML(
+        graph,
+        latent_dim=args.latent_dim,
+        noise_std=args.noise,
+        seed=args.seed,
+    )
+    model.train(epochs=args.epochs)
 
-    decoded_ids = [model.decode_state(s) for s in latent_states]
-    decoded_xy = [env.id_to_state[i] for i in decoded_ids]
+    if args.random_task:
+        start, goal = navigation_map.random_task(
+            np.random.default_rng(args.seed + 200)
+        )
+    else:
+        start = np.array([5.0, 5.0])
+        goal = np.array([args.width - 6.0, args.height - 6.0])
+    if not navigation_map.is_free(start) or not navigation_map.is_free(goal):
+        raise RuntimeError("Selected start or goal is not collision-free")
 
-    return actions, decoded_xy
+    if navigation_map.line_is_free(start, goal, margin=0.05):
+        node_path = []
+        high_level = {
+            "success": True,
+            "candidate_count": 0,
+            "fallback_used": False,
+            "score": float(np.linalg.norm(goal - start)),
+        }
+    else:
+        start_candidates = graph.visible_nodes(start, count=8)
+        goal_candidates = graph.visible_nodes(goal, count=8)
+        start_node, goal_node = min(
+            (
+                (source, target)
+                for source in start_candidates
+                for target in goal_candidates
+            ),
+            key=lambda pair: (
+                np.linalg.norm(start - graph.positions[pair[0]])
+                + graph.shortest_distances[pair[0], pair[1]]
+                + np.linalg.norm(goal - graph.positions[pair[1]])
+            ),
+        )
+        high_level = model.rollout(
+            start_node,
+            goal_node,
+            candidates=args.graph_rollouts,
+        )
+        node_path = high_level["nodes"]
 
-
-def execute_actions(env, actions):
-    state_id = env.start_id
-    path = [env.id_to_state[state_id]]
-
-    for a in actions:
-        state_id = env.transition(state_id, a)
-        path.append(env.id_to_state[state_id])
-
-        if state_id == env.goal_id:
-            break
-
-    return state_id == env.goal_id, path
-
-
-def evaluate_model(env, model):
-    """Measure whether Q/V encode transitions and G encodes affordances."""
-    errors = []
-    affordance_correct = 0
-    affordance_total = env.num_states * env.num_actions
-
-    for state_id in range(env.num_states):
-        o_t = env.obs(state_id)
-        predicted_g = model.G @ model.encode(o_t) >= model.affordance_threshold
-        actual_g = env.affordance(state_id).astype(bool)
-        affordance_correct += int(np.sum(predicted_g == actual_g))
-
-        for action_id in np.flatnonzero(actual_g):
-            next_id = env.transition(state_id, int(action_id))
-            errors.append(
-                model.transition_error(
-                    o_t,
-                    env.action_one_hot(int(action_id)),
-                    env.obs(next_id),
-                )
-            )
+    waypoints = graph.waypoints(start, goal, node_path)
+    spline_planner = SplineRolloutPlanner(
+        navigation_map,
+        candidates=args.spline_rollouts,
+        seed=args.seed + 300,
+    )
+    curve, curve_metrics = spline_planner.plan(waypoints)
 
     return {
-        "transition_rmse": float(np.sqrt(np.mean(np.square(errors)))),
-        "affordance_accuracy": affordance_correct / affordance_total,
-        "finite_parameters": all(
-            np.all(np.isfinite(parameter))
-            for parameter in (model.Q, model.V, model.W, model.G)
-        ),
+        "map": navigation_map,
+        "graph": graph,
+        "model": model,
+        "start": start,
+        "goal": goal,
+        "blocked_passage": blocked_passage,
+        "high_level": high_level,
+        "waypoints": waypoints,
+        "curve": curve,
+        "curve_metrics": curve_metrics,
     }
 
 
-def plot(env, imagined_xy, real_xy):
-    fig, ax = plt.subplots(figsize=(7, 7))
+def draw_result(ax, result, compact=False):
+    navigation_map = result["map"]
+    graph = result["graph"]
+    curve = result["curve"]
+    waypoints = result["waypoints"]
 
-    # draw map
-    free = set(env.free_cells)
-    for y in range(env.height):
-        for x in range(env.width):
-            if (x, y) not in free:
-                ax.add_patch(
-                    plt.Rectangle((x - 0.5, y - 0.5), 1, 1, alpha=0.35)
-                )
-
-    if imagined_xy:
-        p = np.asarray(imagined_xy)
-        ax.plot(p[:, 0], p[:, 1], "--", marker=".", label="imagined")
-
-    if real_xy:
-        p = np.asarray(real_xy)
-        ax.plot(p[:, 0], p[:, 1], marker="o", markersize=3, label="executed")
-
-    ax.scatter(*env.start_pos, s=100, label="start")
-    ax.scatter(*env.goal_pos, s=140, marker="*", label="goal")
-
-    ax.set_xlim(-0.5, env.width - 0.5)
-    ax.set_ylim(env.height - 0.5, -0.5)
+    ax.imshow(
+        navigation_map.occupancy,
+        origin="lower",
+        extent=(-0.5, navigation_map.width - 0.5, -0.5, navigation_map.height - 0.5),
+        cmap="Blues",
+        alpha=0.75,
+        interpolation="nearest",
+    )
+    for source in range(graph.num_nodes):
+        for target in np.flatnonzero(graph.adjacency[source]):
+            if target <= source:
+                continue
+            points = graph.positions[[source, target]]
+            ax.plot(points[:, 0], points[:, 1], color="#b0bec5", linewidth=0.45)
+    ax.scatter(
+        graph.positions[:, 0],
+        graph.positions[:, 1],
+        s=5 if compact else 12,
+        color="#546e7a",
+        label=f"landmarks ({graph.num_nodes})",
+        zorder=3,
+    )
+    ax.plot(
+        waypoints[:, 0],
+        waypoints[:, 1],
+        "--",
+        color="#7e57c2",
+        linewidth=0.8 if compact else 1.2,
+        label="GCML landmark route",
+        zorder=4,
+    )
+    ax.plot(
+        curve[:, 0],
+        curve[:, 1],
+        color="#ef6c00",
+        linewidth=1.7 if compact else 2.6,
+        label="selected B-spline rollout",
+        zorder=5,
+    )
+    ax.scatter(
+        *result["start"],
+        s=35 if compact else 90,
+        color="#1565c0",
+        label="start",
+        zorder=6,
+    )
+    ax.scatter(
+        *result["goal"],
+        s=65 if compact else 150,
+        marker="*",
+        color="#f9a825",
+        label="goal",
+        zorder=6,
+    )
+    if result["blocked_passage"] is not None:
+        ax.scatter(
+            *result["blocked_passage"],
+            s=38 if compact else 90,
+            marker="s",
+            color="#d32f2f",
+            label="blocked passage",
+            zorder=6,
+        )
+    ax.set_xlim(-0.5, navigation_map.width - 0.5)
+    ax.set_ylim(-0.5, navigation_map.height - 0.5)
     ax.set_aspect("equal")
-    ax.legend()
-    ax.set_title("GCML on MiniGrid FourRooms")
-    plt.tight_layout()
-    plt.savefig("fourrooms_gcml.png", dpi=180)
-    plt.show()
+    if not compact:
+        ax.set_xlabel("continuous x")
+        ax.set_ylabel("continuous y")
+        ax.set_title("Sparse Landmark GCML + Smooth B-spline Rollout")
+        ax.legend(loc="upper left", fontsize=8)
+    else:
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+
+def plot_result(result, output_path, show=False):
+    fig, ax = plt.subplots(figsize=(10, 10))
+    draw_result(ax, result)
+    fig.tight_layout()
+
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    if show:
+        plt.show()
+    else:
+        plt.close(fig)
+
+
+def print_summary(result, output_path):
+    graph = result["graph"]
+    model = result["model"]
+    diagnostics = model.diagnostics()
+    high_level = result["high_level"]
+    curve = result["curve_metrics"]
+    grid_states = result["map"].width * result["map"].height
+
+    print("map cells:", grid_states)
+    print("landmarks:", graph.num_nodes)
+    print("directed landmark actions:", graph.num_actions)
+    print("latent dimension:", model.latent_dim)
+    print("Q/V/W parameter count:", diagnostics["parameter_count"])
+    print("Q change:", f"{diagnostics['Q_change']:.6f}")
+    print("V change:", f"{diagnostics['V_change']:.6f}")
+    print("W change:", f"{diagnostics['W_change']:.6f}")
+    print("transition RMSE:", f"{diagnostics['transition_rmse']:.6f}")
+    print("finite parameters:", diagnostics["finite"])
+    print("graph rollout success:", high_level["success"])
+    print("graph rollout candidates:", high_level["candidate_count"])
+    print("shortest-path fallback used:", high_level["fallback_used"])
+    print("landmark waypoints:", len(result["waypoints"]))
+    print("spline candidates:", curve["candidate_count"])
+    print("curve collision-free:", curve["safe"])
+    print("curve length:", f"{curve['path_length']:.3f}")
+    print("curve curvature cost:", f"{curve['curvature']:.3f}")
+    print("minimum wall clearance:", f"{curve['minimum_clearance']:.3f}")
+    print("saved:", output_path)
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Sparse landmark GCML with smooth B-spline rollout"
+    )
+    parser.add_argument("--width", type=int, default=100)
+    parser.add_argument("--height", type=int, default=100)
+    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--latent-dim", type=int, default=24)
+    parser.add_argument("--epochs", type=int, default=120)
+    parser.add_argument("--coverage-radius", type=float, default=8.0)
+    parser.add_argument("--max-landmarks", type=int, default=100)
+    parser.add_argument("--noise", type=float, default=0.18)
+    parser.add_argument("--graph-rollouts", type=int, default=384)
+    parser.add_argument("--spline-rollouts", type=int, default=96)
+    parser.add_argument("--random-task", action="store_true")
+    parser.add_argument("--block-passage", action="store_true")
+    parser.add_argument("--show", action="store_true")
+    parser.add_argument("--output", default="landmark_gcml.png")
+    return parser.parse_args()
 
 
 def main():
-    env = FourRoomsDiscrete(seed=0)
-
-    model = GCML(
-        obs_dim=env.num_states,
-        action_dim=env.num_actions,
-        latent_dim=64,
-        noise_std=0.10,
-        seed=0,
-    )
-
-    print("states:", env.num_states)
-    print("start :", env.start_pos)
-    print("goal  :", env.goal_pos)
-
-    train(env, model, steps=100_000)
-
-    metrics = evaluate_model(env, model)
-    print("transition RMSE:", f"{metrics['transition_rmse']:.4f}")
-    print("learned G accuracy (diagnostic only):", f"{metrics['affordance_accuracy']:.2%}")
-    print("planning affordance: official FourRooms wall mask")
-    print("finite parameters:", metrics["finite_parameters"])
-
-    actions, imagined_xy = imagined_path(env, model, horizon=100)
-    success, real_xy = execute_actions(env, actions)
-
-    print("imagined action count:", len(actions))
-    print("execution success:", success)
-
-    plot(env, imagined_xy, real_xy)
+    args = parse_args()
+    result = run(args)
+    plot_result(result, args.output, show=args.show)
+    print_summary(result, args.output)
 
 
 if __name__ == "__main__":
