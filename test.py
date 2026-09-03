@@ -76,14 +76,12 @@ def make_case(model, seed):
             return dict(start=start, goal=goal, start_node=start_node, goal_node=goal_node)
 
 
-def imagine_first_action(model, node, goal, real_actions, used_actions, samples, horizon, rng):
+def imagine_first_action(model, node, goal, real_actions, samples, horizon, rng):
     """并行生成samples条高维候选，评分后返回最佳候选的第一个动作。"""
     q, v, w, g = (model[name] for name in "QVWG")
     action_count = len(model["edges"])
     target = q[:, goal, None]                         # shape=(潜维数,1)
     state = np.repeat(q[:, node, None], samples, axis=1)
-    used = np.zeros((action_count, samples), bool)    # 每列对应一条候选轨迹
-    used[used_actions, :] = True
     paths = [[] for _ in range(samples)]              # 每条候选的动作编号序列
     arrived = np.zeros(samples, bool)
     residual = np.full(samples, np.inf)
@@ -99,7 +97,6 @@ def imagine_first_action(model, node, goal, real_actions, used_actions, samples,
         if step == 0:
             gate[real_actions, :] = 1                 # 第一想象步采用真实affordance
         eligibility = gate*(utility+noise[:, step].T) # 公式(18)
-        eligibility[used] = -np.inf
         if step == 0:
             eligibility[gate == 0] = -np.inf
         chosen = np.argmax(eligibility, axis=0)       # 公式(19)
@@ -109,7 +106,6 @@ def imagine_first_action(model, node, goal, real_actions, used_actions, samples,
             if not np.isfinite(eligibility[action, sample]):
                 continue
             paths[sample].append(action)
-            used[action, sample] = True
             state[:, sample] += v[:, action]          # 公式(20)，不查询真实下一节点
             residual[sample] = np.linalg.norm(state[:, sample]-target[:, 0])
             arrived[sample] = residual[sample] <= LATENT_GOAL_TOLERANCE
@@ -118,31 +114,33 @@ def imagine_first_action(model, node, goal, real_actions, used_actions, samples,
     ranked = [((not arrived[i], len(path) if arrived[i] else residual[i]), i)
               for i, path in enumerate(paths) if path]
     if not ranked:
-        return None, False, 0
+        return None, (False, 0, 0, 0, 0)
     best = min(ranked, key=lambda item: item[0])[1]
-    return int(paths[best][0]), bool(arrived[best]), len(paths[best])
+    valid = [tuple(path) for path in paths if path]
+    stats = (bool(arrived[best]), len(paths[best]), int(arrived.sum()),
+             len({path[0] for path in valid}), len(set(valid)))
+    return int(paths[best][0]), stats
 
 
 def gcml_rollout(model, case, samples=ROLLOUTS, horizon=ROLLOUT_HORIZON, seed=0):
     """类似MPC：选最佳想象轨迹，但每轮只真实执行它的第一个动作。"""
     edges, available = model["edges"], model["available"]
     node, goal = case["start_node"], case["goal_node"]
-    route, used_actions, trace = [node], [], []      # trace记录最佳想象是否抵达目标及步数
-    rng = np.random.default_rng(seed)
+    route, trace = [node], []
 
-    for _ in range(EXECUTION_HORIZON):
+    for step in range(EXECUTION_HORIZON):
         if node == goal:
             break
-        real_actions = np.asarray([a for a in available[node] if a not in used_actions])
+        real_actions = available[node]
         if not len(real_actions):
             break
-        action, hit, depth = imagine_first_action(
-            model, node, goal, real_actions, used_actions, samples, horizon, rng
+        action, stats = imagine_first_action(
+            model, node, goal, real_actions, samples, horizon,
+            np.random.default_rng(seed+step)  # 各决策独立，使不同samples共享噪声前缀
         )
         if action is None:
             break
-        trace.append((hit, depth))
-        used_actions.append(action)
+        trace.append(stats)
         node = int(edges[action, 1])                  # 这里只执行最佳候选第一步
         route.append(node)
     return route, node == goal, trace
@@ -151,17 +149,16 @@ def gcml_rollout(model, case, samples=ROLLOUTS, horizon=ROLLOUT_HORIZON, seed=0)
 def cml_rollout(model, case):
     """CML基线：无噪声、无G、无多步想象，每次真实状态只贪心走一步。"""
     q, w, edges = model["Q"], model["W"], model["edges"]
-    node, goal, used = case["start_node"], case["goal_node"], []
+    node, goal = case["start_node"], case["goal_node"]
     route = [node]                                  # 每次一步决策，累计后仍形成完整路线
     for _ in range(EXECUTION_HORIZON):
         if node == goal:
             return route, True
-        actions = np.asarray([a for a in model["available"][node] if a not in used])
+        actions = model["available"][node]
         if not len(actions):
             return route, False
         utility = w@(q[:, goal]-q[:, node])
         action = int(actions[np.argmax(utility[actions])])
-        used.append(action)
         node = int(edges[action, 1])
         route.append(node)
     return route, False
@@ -208,7 +205,7 @@ def benchmark(model):
     def evaluate(current, samples=ROLLOUTS, horizon=ROLLOUT_HORIZON, seed=0):
         runs = [gcml_rollout(current, case, samples, horizon, seed+i)
                 for i, case in enumerate(cases)]
-        trace = [hit for _, _, items in runs for hit, _ in items]
+        trace = [hit for _, _, items in runs for hit, *_ in items]
         return 100*np.mean([run[1] for run in runs]), 100*np.mean(trace) if trace else 100.
 
     cml_rate = 100*np.mean([cml_rollout(model, case)[1] for case in cases])
@@ -248,7 +245,7 @@ def draw_case(ax, model, result, index):
     ax.plot(*physical(result["gcml_route"], result["gcml_success"]).T,
             color="#ef6c00", lw=2, label="GCML")
     decisions = points[result["gcml_route"][:-1]]
-    reached = np.asarray([hit for hit, _ in result["rollout_trace"]], bool)
+    reached = np.asarray([hit for hit, *_ in result["rollout_trace"]], bool)
     if len(decisions):
         ax.scatter(*decisions[reached].T, facecolors="none", edgecolors="#2e7d32",
                    s=35, lw=1.5, zorder=4, label="rollout reached")
@@ -305,7 +302,7 @@ def save_figures(model, results, scores, metrics):
     ax.grid(alpha=.2); ax.legend()
 
     trace = [item for result in results for item in result["rollout_trace"]]
-    hit_depths = [depth for hit, depth in trace if hit]
+    hit_depths = [depth for hit, depth, *_ in trace if hit]
     def route_stats(name):
         good = [r for r in results if r[name+"_success"]]
         steps = [len(r[name+"_route"])-1 for r in good]
@@ -327,6 +324,9 @@ def save_figures(model, results, scores, metrics):
               f"selected rollout reached: {len(hit_depths)}/{len(trace)} "
               f"({len(hit_depths)/max(len(trace), 1):.1%})\n"
               f"mean hit depth: {np.mean(hit_depths) if hit_depths else 0:.1f}\n"
+              f"mean reached candidates: {np.mean([x[2] for x in trace]):.1f}/{ROLLOUTS}\n"
+              f"mean unique first / paths: {np.mean([x[3] for x in trace]):.1f} / "
+              f"{np.mean([x[4] for x in trace]):.1f}\n"
               f"No fallback; failures remain visible.",
               va="top", family="monospace", fontsize=11)
     fig.tight_layout(); fig.savefig(REPORT_FIGURE, dpi=180); plt.close(fig)
@@ -352,7 +352,7 @@ def main():
                for a, b in zip(route[:-1], route[1:])):
             raise AssertionError("GCML执行了无效动作")
         results.append(result)
-        reach_text = "".join("T" if hit else "F" for hit, _ in rollout_trace) or "-"
+        reach_text = "".join("T" if hit else "F" for hit, *_ in rollout_trace) or "-"
         print(f"case {i+1:02d}: GCML={gcml_success}({len(gcml_route)-1} steps), "
               f"CML={cml_success}({len(cml_route)-1} steps), "
               f"rollout_reached={reach_text}")
