@@ -12,16 +12,16 @@ SEED = 0
 AGENT_RADIUS = .35
 LINE_SAMPLE_SPACING = .30
 
-LANDMARKS_PER_ROOM = 3       # 16个房间各取3个内部节点
-CONNECTION_RADIUS = 30.0     # 稀疏节点间的局部可视连接半径
-LATENT_DIM = 64
-ABLATION_DIMS = (8, 16, 32)  # 额外训练，供test量化潜空间维数影响
+LANDMARKS_PER_ROOM = 5       # 每个房间5个内部节点
+ROOM_NEIGHBORS = 2           # 每点补充的房间内最近可见邻居数
+LATENT_DIM = 128
+ABLATION_DIMS = (8, 16, 32, 64)  # 仅用于潜空间维数消融
 
 BUFFER_TRAJECTORIES = 200    # 至少采集多少条随机游走轨迹
 MAX_BUFFER_TRAJECTORIES = 500
 TRAJECTORY_LENGTH = 100      # 每条训练轨迹包含100次状态转移
 BATCH_TRAJECTORIES = 16      # 每轮从buffer随机抽取的轨迹数
-EPOCHS = 600
+EPOCHS = 1000
 
 # 论文给出的抽象图默认初始化与学习率
 ETA_Q = .1
@@ -106,61 +106,63 @@ def line_free(sdf, a, b, margin=.08):
 
 
 def build_graph(grid, passages):
-    """每个房间取3个内部节点，并保留全部通道节点。"""
-    sdf = distance_field(grid)
-    points = [p[:2].astype(float) for p in passages]  # 通道节点保证房间间可连接
-    bounds = (1, 25, 50, 75, 99)
+    """房间内局部连边；门口节点同时属于相邻两个房间。"""
+    sdf, bounds = distance_field(grid), (1, 25, 50, 75, 99)
+    points = [p[:2].astype(float) for p in passages]
+    rooms = [[] for _ in range(16)]
 
+    def room_id(point):
+        col, row = np.searchsorted(bounds[1:-1], point, side="right")
+        return 4*row+col
+
+    # 每个门口加入墙两侧房间，保证所有相邻房间一定通过它连接。
+    for i, (x, y, axis) in enumerate(passages):
+        offsets = ((-1, 0), (1, 0)) if axis == 0 else ((0, -1), (0, 1))
+        for dx, dy in offsets:
+            rooms[room_id((x+dx, y+dy))].append(i)
+
+    # 最远点采样使房间内节点分布均匀，并主动远离已有门口节点。
     for row in range(4):
         for col in range(4):
-            x0, x1, y0, y1 = bounds[col], bounds[col+1], bounds[row], bounds[row+1]
-            candidates = np.array([
-                [x, y] for y in range(y0+2, y1-1, 2) for x in range(x0+2, x1-1, 2)
-                if clearance(sdf, (x, y))[0] >= AGENT_RADIUS+.6
-            ], float)
+            room, (x0, x1), (y0, y1) = 4*row+col, bounds[col:col+2], bounds[row:row+2]
+            candidates = np.array([[x, y] for y in range(y0+2, y1-1, 2)
+                                   for x in range(x0+2, x1-1, 2)
+                                   if clearance(sdf, (x, y))[0] >= AGENT_RADIUS+.6], float)
             chosen = []
             for _ in range(LANDMARKS_PER_ROOM):
-                anchors = np.asarray(points+chosen)
-                nearest = np.linalg.norm(candidates[:, None]-anchors[None], axis=2).min(1)
-                point = candidates[int(np.argmax(nearest))]
-                chosen.append(point)
-            points.extend(chosen)
+                anchors = np.asarray([points[i] for i in rooms[room]]+chosen)
+                distance = np.linalg.norm(candidates[:, None]-anchors[None], axis=2).min(1)
+                chosen.append(candidates[int(np.argmax(distance))])
+            rooms[room] += list(range(len(points), len(points)+len(chosen)))
+            points += chosen
 
-    points = np.asarray(points)  # shape=(节点数,2)
-    pair = np.linalg.norm(points[:, None]-points[None], axis=2)
+    points = np.asarray(points)
     adjacency = np.zeros((len(points), len(points)), bool)
-    for i, j in np.argwhere(np.triu(pair <= CONNECTION_RADIUS, 1)):
-        if line_free(sdf, points[i], points[j]):
+    for members in rooms:
+        visible = sorted((np.linalg.norm(points[i]-points[j]), i, j)
+                         for n, i in enumerate(members) for j in members[n+1:]
+                         if line_free(sdf, points[i], points[j]))
+        # 最小生成树先保证房间内所有节点和门口连通。
+        connected = {members[0]}
+        while len(connected) < len(members):
+            bridge = next((edge for edge in visible
+                           if (edge[1] in connected) != (edge[2] in connected)), None)
+            if bridge is None:
+                raise RuntimeError("房间内地标无法连通")
+            _, i, j = bridge
             adjacency[i, j] = adjacency[j, i] = True
+            connected.update((i, j))
+        # 每点再保留最近的少量可见邻居，提供冗余但避免蜘蛛网。
+        for i in members:
+            local = [(d, j if a == i else a) for d, a, j in visible if i in (a, j)]
+            for _, j in local[:ROOM_NEIGHBORS]:
+                adjacency[i, j] = adjacency[j, i] = True
 
-    # 删除障碍死角里看不到任何邻居的内部点；通道点始终保留。
-    keep = adjacency.any(1) | (np.arange(len(points)) < len(passages))
+    # 删除无冗余的内部叶节点；门口节点始终保留且必须连接墙两侧。
+    keep = (adjacency.sum(1) > 1) | (np.arange(len(points)) < len(passages))
     points, adjacency = points[keep], adjacency[np.ix_(keep, keep)]
-    pair = np.linalg.norm(points[:, None]-points[None], axis=2)
-
-    # 极端情况下补一条最近的无碰撞桥边，直到整张图连通。
-    while True:
-        label, component = np.full(len(points), -1), 0
-        for root in range(len(points)):
-            if label[root] >= 0:
-                continue
-            label[root], stack = component, [root]
-            while stack:
-                for node in np.flatnonzero(adjacency[stack.pop()]):
-                    if label[node] < 0:
-                        label[node] = component
-                        stack.append(int(node))
-            component += 1
-        if component == 1:
-            break
-        bridges = [(pair[i, j], i, j) for i, j in np.argwhere(np.triu(label[:, None] != label[None], 1))
-                   if line_free(sdf, points[i], points[j])]
-        if not bridges:
-            raise RuntimeError("稀疏节点无法连接全部房间")
-        _, i, j = min(bridges)
-        adjacency[i, j] = adjacency[j, i] = True
-
-    edges = np.argwhere(adjacency).astype(int)  # 每行[source_node,target_node]
+    assert np.all(adjacency[:len(passages)].sum(1) >= 2)
+    edges = np.argwhere(adjacency).astype(int)
     return points, adjacency, edges
 
 
@@ -194,7 +196,7 @@ def collect_buffer(edges, node_count):
 def train_model(edges, node_count, buffer, latent_dim=LATENT_DIM):
     """每轮随机抽取若干完整轨迹，再用论文局部规则训练Q/V/W/G。"""
     rng, action_count = np.random.default_rng(SEED), len(edges)
-    dim = min(latent_dim, node_count)
+    dim = latent_dim
 
     # 论文明确给出的随机初始化，不使用图拉普拉斯初始化或Q白化。
     q = rng.normal(0, 1, (dim, node_count))
