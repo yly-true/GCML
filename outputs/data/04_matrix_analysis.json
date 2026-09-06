@@ -1,0 +1,26 @@
+{
+  "\u8bad\u7ec3\u524d": {
+    "q_rank": 84,
+    "min_state_distance": 12.195457682100585,
+    "hop_distance_correlation": -0.0038327032001942603,
+    "transition_relative": 1.0024984306259268,
+    "max_edge_error": 18.931697845238673,
+    "cycle_relative": 0.7774997540251359,
+    "transition_decode": 0.0,
+    "w_cosine": 0.0027690151541751797,
+    "g_rmse": 1.146064762530169,
+    "g_f1": 0.01648166834846956
+  },
+  "\u8bad\u7ec3\u540e": {
+    "q_rank": 84,
+    "min_state_distance": 1.2205936758755431,
+    "hop_distance_correlation": 0.7444253194610582,
+    "transition_relative": 6.674503888244244e-05,
+    "max_edge_error": 0.0002449588389813817,
+    "cycle_relative": 2.9805649806484798e-05,
+    "transition_decode": 1.0,
+    "w_cosine": 0.9969311956568399,
+    "g_rmse": 0.017496776358831855,
+    "g_f1": 1.0
+  }
+}

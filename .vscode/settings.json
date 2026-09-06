@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath": "E:\\6\\envs\\tf215_gpu\\python.exe",
+    "python.condaPath": "E:\\6\\Scripts\\conda.exe",
+    "python.terminal.activateEnvironment": true
+}

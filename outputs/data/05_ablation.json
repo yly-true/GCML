@@ -1,0 +1,6225 @@
+{
+  "seed": 100,
+  "candidates": 100,
+  "horizon": 32,
+  "noise": 0.18,
+  "tolerance": 0.8,
+  "cases": [
+    {
+      "start": [
+        12.740429793989133,
+        91.08272823438254
+      ],
+      "goal": [
+        94.29514212502752,
+        83.8371778778884
+      ],
+      "start_node": 2,
+      "goal_node": 66
+    },
+    {
+      "start": [
+        86.78308398333091,
+        76.8900367611409
+      ],
+      "goal": [
+        10.83270999134107,
+        93.82510223277517
+      ],
+      "start_node": 66,
+      "goal_node": 2
+    },
+    {
+      "start": [
+        93.10822419378914,
+        47.84070274635481
+      ],
+      "goal": [
+        7.786149813033619,
+        28.7957992969045
+      ],
+      "start_node": 7,
+      "goal_node": 23
+    },
+    {
+      "start": [
+        7.299262000819405,
+        40.92086085053051
+      ],
+      "goal": [
+        81.95079273134189,
+        93.87957630969358
+      ],
+      "start_node": 12,
+      "goal_node": 19
+    },
+    {
+      "start": [
+        91.25473083221566,
+        96.15585871065743
+      ],
+      "goal": [
+        41.72217611924884,
+        22.20222305444637
+      ],
+      "start_node": 66,
+      "goal_node": 40
+    },
+    {
+      "start": [
+        4.220529479251977,
+        59.86369566227027
+      ],
+      "goal": [
+        54.83502070009682,
+        15.151217434364346
+      ],
+      "start_node": 53,
+      "goal_node": 27
+    },
+    {
+      "start": [
+        76.2676895636822,
+        13.82141945978053
+      ],
+      "goal": [
+        30.24472290972284,
+        65.01671440289176
+      ],
+      "start_node": 29,
+      "goal_node": 56
+    },
+    {
+      "start": [
+        63.12884198895396,
+        16.959965274060025
+      ],
+      "goal": [
+        63.090463050852776,
+        71.97571359577674
+      ],
+      "start_node": 6,
+      "goal_node": 61
+    },
+    {
+      "start": [
+        72.70749095866745,
+        60.18646108920339
+      ],
+      "goal": [
+        15.98888713709268,
+        86.90572941944447
+      ],
+      "start_node": 63,
+      "goal_node": 2
+    },
+    {
+      "start": [
+        3.2081362647918366,
+        66.83482268399958
+      ],
+      "goal": [
+        67.79148521455542,
+        14.165993599913831
+      ],
+      "start_node": 53,
+      "goal_node": 28
+    },
+    {
+      "start": [
+        30.05840752726509,
+        29.83252174720647
+      ],
+      "goal": [
+        36.71337977675061,
+        95.71195647573877
+      ],
+      "start_node": 42,
+      "goal_node": 72
+    },
+    {
+      "start": [
+        88.22421134854318,
+        70.78901951119116
+      ],
+      "goal": [
+        47.11473645677142,
+        17.295917152557777
+      ],
+      "start_node": 66,
+      "goal_node": 28
+    },
+    {
+      "start": [
+        63.02733536624657,
+        4.284708453752572
+      ],
+      "goal": [
+        81.00276241965094,
+        85.29886304639065
+      ],
+      "start_node": 6,
+      "goal_node": 19
+    },
+    {
+      "start": [
+        62.1376726054238,
+        8.018766594771987
+      ],
+      "goal": [
+        78.789838814754,
+        61.08451234685864
+      ],
+      "start_node": 6,
+      "goal_node": 64
+    },
+    {
+      "start": [
+        19.16969216058491,
+        86.26176377548
+      ],
+      "goal": [
+        54.13020393366031,
+        7.867149118582353
+      ],
+      "start_node": 2,
+      "goal_node": 27
+    },
+    {
+      "start": [
+        16.092587330844886,
+        37.206942649858206
+      ],
+      "goal": [
+        64.25632687873858,
+        88.83336422700526
+      ],
+      "start_node": 12,
+      "goal_node": 5
+    },
+    {
+      "start": [
+        22.864791311448453,
+        95.95104421996514
+      ],
+      "goal": [
+        70.21233842161034,
+        67.00372387804565
+      ],
+      "start_node": 2,
+      "goal_node": 18
+    },
+    {
+      "start": [
+        84.79450143866907,
+        77.04219385685069
+      ],
+      "goal": [
+        70.8903646256628,
+        11.016460912578493
+      ],
+      "start_node": 66,
+      "goal_node": 34
+    },
+    {
+      "start": [
+        45.98072756162716,
+        17.994536177980354
+      ],
+      "goal": [
+        79.11880142835874,
+        90.84240712701344
+      ],
+      "start_node": 28,
+      "goal_node": 19
+    },
+    {
+      "start": [
+        27.09110006747142,
+        45.1146502646365
+      ],
+      "goal": [
+        84.06121041477738,
+        9.703309949056239
+      ],
+      "start_node": 41,
+      "goal_node": 11
+    },
+    {
+      "start": [
+        30.247027091888388,
+        87.81106312383271
+      ],
+      "goal": [
+        22.943712715477503,
+        12.18861530535242
+      ],
+      "start_node": 72,
+      "goal_node": 26
+    },
+    {
+      "start": [
+        53.172709282945554,
+        43.01062519075541
+      ],
+      "goal": [
+        8.849063374090298,
+        95.96164602601621
+      ],
+      "start_node": 14,
+      "goal_node": 2
+    },
+    {
+      "start": [
+        28.178217182323483,
+        30.271380506326658
+      ],
+      "goal": [
+        92.74112049070729,
+        47.82352300109657
+      ],
+      "start_node": 41,
+      "goal_node": 7
+    },
+    {
+      "start": [
+        42.85258786193122,
+        68.08853257856227
+      ],
+      "goal": [
+        21.799041369439706,
+        2.206379477954237
+      ],
+      "start_node": 56,
+      "goal_node": 0
+    },
+    {
+      "start": [
+        30.11131029317911,
+        21.95165785405187
+      ],
+      "goal": [
+        6.7328211398238755,
+        79.86024803207764
+      ],
+      "start_node": 10,
+      "goal_node": 55
+    },
+    {
+      "start": [
+        93.90056856086849,
+        76.85352995317163
+      ],
+      "goal": [
+        6.861269377405841,
+        9.721397462537029
+      ],
+      "start_node": 19,
+      "goal_node": 0
+    },
+    {
+      "start": [
+        73.24696755927552,
+        14.147790395614974
+      ],
+      "goal": [
+        34.2332360355386,
+        59.164042520309714
+      ],
+      "start_node": 29,
+      "goal_node": 13
+    },
+    {
+      "start": [
+        93.11420941319751,
+        48.03826327077569
+      ],
+      "goal": [
+        28.890089752090756,
+        5.940058047293124
+      ],
+      "start_node": 7,
+      "goal_node": 10
+    },
+    {
+      "start": [
+        95.19420222506321,
+        1.883655425495681
+      ],
+      "goal": [
+        13.289940380751743,
+        49.74979467194066
+      ],
+      "start_node": 6,
+      "goal_node": 38
+    },
+    {
+      "start": [
+        38.12671154606185,
+        33.092219865037194
+      ],
+      "goal": [
+        62.9821284062087,
+        94.17035418035856
+      ],
+      "start_node": 4,
+      "goal_node": 18
+    }
+  ],
+  "results": {
+    "dimension": [
+      {
+        "value": 8,
+        "success": 0.3,
+        "ci95": [
+          0.16664562643958933,
+          0.4787612101166018
+        ],
+        "spl": 0.13938894069148686,
+        "decision_ms": 32.46068129117254,
+        "rollout_hit": 1.0,
+        "g_f1": 0.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.3257628999999724,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.25575989999993,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.6413410000000113,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.6640244000000166,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.7851790999999366,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 10,
+            "spl": 0.7951623677921374,
+            "seconds": 0.27467159999991964,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.021974099999966,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.7866867000000184,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.1695974000000433,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.8598706999999877,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.6043205000000853,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.321119000000067,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.4963650999999345,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.7016541000000416,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 32,
+            "spl": 0.3213260684056082,
+            "seconds": 1.000979099999995,
+            "hits": 32,
+            "decisions": 32
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 13,
+            "spl": 0.6925557997641035,
+            "seconds": 0.40436429999999746,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 15,
+            "spl": 0.3593051541521084,
+            "seconds": 0.47325279999995473,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.7036239999999907,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.5580982999999833,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.5717175999999426,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.161256699999967,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.2500796000000491,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 6,
+            "spl": 0.6814048805102856,
+            "seconds": 0.13236849999998412,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 15,
+            "spl": 0.47490946529217765,
+            "seconds": 0.35946769999998196,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.858004400000027,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 1.891811799999914,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 33,
+            "spl": 0.2635375076855194,
+            "seconds": 0.8447138000000223,
+            "hits": 33,
+            "decisions": 33
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 14,
+            "spl": 0.426800310475999,
+            "seconds": 0.41076840000005177,
+            "hits": 14,
+            "decisions": 14
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 2.5679362000000765,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 36,
+            "spl": 0.16666666666666666,
+            "seconds": 1.1785445000000436,
+            "hits": 36,
+            "decisions": 36
+          }
+        ]
+      },
+      {
+        "value": 16,
+        "success": 0.9,
+        "ci95": [
+          0.7437855868473339,
+          0.9654007400402839
+        ],
+        "spl": 0.6315363803417481,
+        "decision_ms": 49.18926581560335,
+        "rollout_hit": 0.8652482269503546,
+        "g_f1": 0.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 23,
+            "spl": 0.500533967086548,
+            "seconds": 1.170809800000029,
+            "hits": 22,
+            "decisions": 23
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 41,
+            "spl": 0.2772360470255247,
+            "seconds": 1.9900877000000037,
+            "hits": 29,
+            "decisions": 41
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 17,
+            "spl": 0.6557027914606283,
+            "seconds": 0.8789952999999286,
+            "hits": 13,
+            "decisions": 17
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 48,
+            "spl": 0.37692147714871854,
+            "seconds": 2.451096600000028,
+            "hits": 41,
+            "decisions": 48
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8258262692312398,
+            "seconds": 0.5705057000000124,
+            "hits": 9,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.37594830000000456,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 18,
+            "spl": 0.5636333350286257,
+            "seconds": 0.9188529000000472,
+            "hits": 18,
+            "decisions": 18
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 13,
+            "spl": 0.6835238985304619,
+            "seconds": 0.7322123999999803,
+            "hits": 12,
+            "decisions": 13
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3394559000000754,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.058257700000013,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.2071247000000085,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.3913943000000017,
+            "hits": 29,
+            "decisions": 64
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 43,
+            "spl": 0.20913915910625208,
+            "seconds": 2.1286929999999984,
+            "hits": 43,
+            "decisions": 43
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.28009210000004714,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.2998053000000027,
+            "hits": 64,
+            "decisions": 64
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 15,
+            "spl": 0.6219373129516054,
+            "seconds": 0.7053006999999525,
+            "hits": 9,
+            "decisions": 15
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.18397640000000592,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.22268229999997402,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 37,
+            "spl": 0.2941988211602544,
+            "seconds": 1.784024899999963,
+            "hits": 37,
+            "decisions": 37
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23522809999997207,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 62,
+            "spl": 0.12751784142141423,
+            "seconds": 3.0199744999999893,
+            "hits": 62,
+            "decisions": 62
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3648153999999977,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.11846640000010211,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 45,
+            "spl": 0.15774250376390825,
+            "seconds": 2.516916300000048,
+            "hits": 36,
+            "decisions": 45
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.30204120000007606,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 29,
+            "spl": 0.5274079418987384,
+            "seconds": 1.5326610000000755,
+            "hits": 13,
+            "decisions": 29
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8248615706175791,
+            "seconds": 0.4284300000000485,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 8,
+            "spl": 0.7610536603827142,
+            "seconds": 0.32733170000005885,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 22,
+            "spl": 0.5388548134382283,
+            "seconds": 0.8907918999999538,
+            "hits": 21,
+            "decisions": 22
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.25245989999996254,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 32,
+        "success": 0.9333333333333333,
+        "ci95": [
+          0.7867618227892791,
+          0.9815233646723066
+        ],
+        "spl": 0.7752734145799433,
+        "decision_ms": 51.64282012847851,
+        "rollout_hit": 0.5053533190578159,
+        "g_f1": 0.13452914798206278,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.7659517999999252,
+            "hits": 3,
+            "decisions": 64
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 23,
+            "spl": 0.48689597262691336,
+            "seconds": 1.3674552999999605,
+            "hits": 12,
+            "decisions": 23
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 17,
+            "spl": 0.6508329101392527,
+            "seconds": 0.9469907999999805,
+            "hits": 12,
+            "decisions": 17
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 34,
+            "spl": 0.5309564927607924,
+            "seconds": 1.9081824999999526,
+            "hits": 9,
+            "decisions": 34
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 10,
+            "spl": 0.9968320972615364,
+            "seconds": 0.4327872999999727,
+            "hits": 7,
+            "decisions": 10
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.34842349999996713,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 16,
+            "spl": 0.642858416408324,
+            "seconds": 0.8395465999999487,
+            "hits": 10,
+            "decisions": 16
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 17,
+            "spl": 0.5363159397785313,
+            "seconds": 0.8541148000000476,
+            "hits": 10,
+            "decisions": 17
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3086840000000848,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7382893772172385,
+            "seconds": 0.7248488999999836,
+            "hits": 11,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.19604069999991225,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 3.561333099999956,
+            "hits": 1,
+            "decisions": 64
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.38428349999992406,
+            "hits": 8,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 9,
+            "spl": 0.7947473970611078,
+            "seconds": 0.4165978000000905,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 16,
+            "spl": 0.630265450776229,
+            "seconds": 0.8322961999999734,
+            "hits": 9,
+            "decisions": 16
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 9,
+            "spl": 0.9928755580182682,
+            "seconds": 0.4614911999999549,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.18941710000001422,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.25477279999995517,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7412992868931402,
+            "seconds": 0.7511771999999155,
+            "hits": 11,
+            "decisions": 15
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.26597319999996216,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 12,
+            "spl": 0.660230892177836,
+            "seconds": 0.5529080000000022,
+            "hits": 8,
+            "decisions": 12
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3829481999999871,
+            "hits": 7,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.1215034999999034,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 9,
+            "spl": 0.7721035720332708,
+            "seconds": 0.41579239999998663,
+            "hits": 8,
+            "decisions": 9
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 11,
+            "spl": 0.6481060890356156,
+            "seconds": 0.5325882000000774,
+            "hits": 9,
+            "decisions": 11
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 35,
+            "spl": 0.4355929852102417,
+            "seconds": 1.8466955999999755,
+            "hits": 10,
+            "decisions": 35
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3850819000000456,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23868110000000797,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.558347299999923,
+            "hits": 11,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2722825000000739,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 64,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.9701407172656009,
+        "decision_ms": 48.543269999999794,
+        "rollout_hit": 0.9607142857142857,
+        "g_f1": 0.9828850855745721,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5457804000000124,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5610921999999618,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.49912540000002537,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 18,
+            "spl": 0.9979216965629325,
+            "seconds": 0.9724611000000323,
+            "hits": 15,
+            "decisions": 18
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4863707000000659,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.40097419999995054,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5094403000000511,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3940383000000338,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26499539999997523,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.738056340191268,
+            "seconds": 0.7426665000000412,
+            "hits": 13,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.2013309000000163,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5163174999999001,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45398380000006,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.30540959999996176,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5373917000000574,
+            "hits": 9,
+            "decisions": 10
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 9,
+            "spl": 0.9928755580182682,
+            "seconds": 0.40745240000001104,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.17670379999992747,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2345712999999705,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5491260000000011,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.25454609999997047,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5092090999999073,
+            "hits": 9,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3797488999999814,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.13545599999997648,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.32735999999999876,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.33958020000000033,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 21,
+            "spl": 0.7322700959918084,
+            "seconds": 1.1707969999999932,
+            "hits": 17,
+            "decisions": 21
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4140631000000212,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2393174999999701,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 14,
+            "spl": 0.8504194866833941,
+            "seconds": 0.7844261999999844,
+            "hits": 14,
+            "decisions": 14
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2783800000000838,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 128,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 51.10482431506834,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6734661000000415,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8856574999999793,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.7872902000000295,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.400233999999955,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.6435535000000527,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3584784000000809,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5367586999999503,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.55076889999998,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26823320000005424,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8035350000000108,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.22074069999996482,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5336549999999534,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4060570999999982,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2963792000000467,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6208313000000771,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5259697000000187,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.17559209999990344,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24306239999998525,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6110153999999284,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24398709999991297,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5402451999999585,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3580460000000585,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.12272510000002512,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3067297000000053,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2840919999999869,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9870449000000008,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45254350000004706,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24487629999998717,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6029022000000168,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23813829999994596,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      }
+    ],
+    "noise": [
+      {
+        "value": 0.0,
+        "success": 0.3,
+        "ci95": [
+          0.16664562643958933,
+          0.4787612101166018
+        ],
+        "spl": 0.3,
+        "decision_ms": 69.32202985714257,
+        "rollout_hit": 0.04,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.400325699999939,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.841799200000082,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.594191999999907,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.558834200000092,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.453433700000005,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.73192210000002,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.516565200000059,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.47160550000001,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.343914000000041,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.561037199999873,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.10204789999988861,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 5.059534999999869,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.2193010000000868,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.1580105000000458,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.853040100000044,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.994015900000022,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.09176720000004934,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.11572350000005827,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.615041000000019,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.11249879999991208,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.16512599999987287,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.563333800000009,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.07387240000002748,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.616375500000004,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.243196200000057,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.3758040000000165,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.336677299999792,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.11063359999980094,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.457921200000101,
+            "hits": 0,
+            "decisions": 64
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": false,
+            "steps": 64,
+            "spl": 0.0,
+            "seconds": 4.313292099999899,
+            "hits": 0,
+            "decisions": 64
+          }
+        ]
+      },
+      {
+        "value": 0.05,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.9294919633187952,
+        "decision_ms": 45.45567676470575,
+        "rollout_hit": 0.8970588235294118,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 39,
+            "spl": 0.2816260182758908,
+            "seconds": 2.485615800000005,
+            "hits": 16,
+            "decisions": 39
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.48281820000011066,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.48319390000006024,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 50,
+            "spl": 0.36205171425420835,
+            "seconds": 3.07289209999999,
+            "hits": 38,
+            "decisions": 50
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4216524000000845,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.2861037000000124,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4380380000000059,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45203990000004524,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2127360999998018,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.4015795000000253,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.11140449999993507,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.36360820000004423,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.28708929999993416,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.16922490000001744,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.3965501000000131,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 9,
+            "spl": 0.9928755580182682,
+            "seconds": 0.32359809999979916,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.12218379999990248,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.17832859999998618,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.3954443000000083,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.17237629999999626,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.24806630000011864,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.27816470000016125,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.06893220000006295,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 19,
+            "spl": 0.36751377793316714,
+            "seconds": 1.089078999999856,
+            "hits": 19,
+            "decisions": 19
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.20954280000000836,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.8926696000000902,
+            "hits": 17,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3724314000000959,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.18243429999984073,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.5988391999999294,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2582929000000149,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.1,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.9821149991521297,
+        "decision_ms": 48.10761123188477,
+        "rollout_hit": 0.9855072463768116,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6708568999999898,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6153801000000385,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6789062999998805,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.571822000000111,
+            "hits": 18,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.507756499999914,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3756922999998551,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5284457000000202,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.41643569999996544,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.25585960000012165,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5057646000000204,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.16123730000003889,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4715459000001374,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3671712000000298,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.22264229999996132,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.49033840000015516,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 9,
+            "spl": 0.9928755580182682,
+            "seconds": 0.3977548999998817,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.1352891000001364,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23386709999999766,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.4689175000000887,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24141599999984464,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3586456000000453,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.35838909999984025,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.10211340000000746,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3200899999999365,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2485990000000129,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 19,
+            "spl": 0.7840211297408453,
+            "seconds": 1.1404740000000402,
+            "hits": 19,
+            "decisions": 19
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3536235999999917,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.19063210000012987,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 14,
+            "spl": 0.8678850155294352,
+            "seconds": 0.6812010999999529,
+            "hits": 14,
+            "decisions": 14
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.20683340000005046,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.18,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 51.10482431506834,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6734661000000415,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8856574999999793,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.7872902000000295,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.400233999999955,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.6435535000000527,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3584784000000809,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5367586999999503,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.55076889999998,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26823320000005424,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8035350000000108,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.22074069999996482,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5336549999999534,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4060570999999982,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2963792000000467,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6208313000000771,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5259697000000187,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.17559209999990344,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24306239999998525,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6110153999999284,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24398709999991297,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5402451999999585,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3580460000000585,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.12272510000002512,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3067297000000053,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2840919999999869,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9870449000000008,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45254350000004706,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24487629999998717,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6029022000000168,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23813829999994596,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.3,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.9063269497330135,
+        "decision_ms": 59.93238105590057,
+        "rollout_hit": 0.9192546583850931,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6515329999999722,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 13,
+            "spl": 0.85824821059961,
+            "seconds": 0.7888633999998547,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7360844964622081,
+            "seconds": 0.8879429000000982,
+            "hits": 13,
+            "decisions": 15
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 32,
+            "spl": 0.5725541162172653,
+            "seconds": 2.2448970000000372,
+            "hits": 19,
+            "decisions": 32
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5626224000000093,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.42383829999994305,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.6460366999999678,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8169892361322492,
+            "seconds": 0.7757652000000235,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.44024190000004637,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 17,
+            "spl": 0.6624582077573834,
+            "seconds": 1.1137111999998979,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.27444279999986065,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.6126933999998982,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.5313071999999011,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.39037549999989096,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 18,
+            "spl": 0.5566181484151461,
+            "seconds": 1.123129199999994,
+            "hits": 17,
+            "decisions": 18
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8208531558937147,
+            "seconds": 0.6547827000001689,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.24489930000004279,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.3166567999999188,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8585405596466894,
+            "seconds": 0.8415310999998837,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.35273480000000745,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5196006999999554,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.40617059999999583,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.18203599999992548,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3807033999999021,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3677151000001686,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 29,
+            "spl": 0.5147840203457782,
+            "seconds": 1.8386108000001968,
+            "hits": 20,
+            "decisions": 29
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45156500000007327,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.29006920000006176,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6900167000001147,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2937344000001758,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.5,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.8598767119918558,
+        "decision_ms": 62.14595359115918,
+        "rollout_hit": 0.8204419889502762,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6970753000000514,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8397439434708572,
+            "seconds": 0.7731871999999385,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 17,
+            "spl": 0.645530949229912,
+            "seconds": 1.064583999999968,
+            "hits": 12,
+            "decisions": 17
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 36,
+            "spl": 0.5079524944637936,
+            "seconds": 2.3017893999999615,
+            "hits": 16,
+            "decisions": 36
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8456421699357131,
+            "seconds": 0.7360638000000108,
+            "hits": 11,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 10,
+            "spl": 0.8154226080848821,
+            "seconds": 0.5997290999998768,
+            "hits": 9,
+            "decisions": 10
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8257363524339555,
+            "seconds": 0.7002580999999282,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.6861997999999403,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3859657000000425,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7445820853441204,
+            "seconds": 0.9712339000000156,
+            "hits": 12,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.3100732999998854,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 34,
+            "spl": 0.29911527353158857,
+            "seconds": 2.3828985000000102,
+            "hits": 23,
+            "decisions": 34
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.5296280000000024,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.4375426999999945,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 18,
+            "spl": 0.5480220622227084,
+            "seconds": 1.1172931999999491,
+            "hits": 17,
+            "decisions": 18
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8208531558937147,
+            "seconds": 0.712855700000091,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.2732424999999239,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.3418376000001899,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8535098502403958,
+            "seconds": 0.8193948999999066,
+            "hits": 12,
+            "decisions": 13
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.3151221999999052,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.44082380000008925,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.4381723999999849,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.19796489999998812,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.4379041000001962,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.4001521000000139,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 33,
+            "spl": 0.45420966464613427,
+            "seconds": 2.2119512999997823,
+            "hits": 14,
+            "decisions": 33
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.5397583999999824,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.35736020000013013,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 16,
+            "spl": 0.7628955071174688,
+            "seconds": 0.9859661000000415,
+            "hits": 13,
+            "decisions": 16
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.33080699999982244,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      }
+    ],
+    "tolerance": [
+      {
+        "value": 0.05,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 51.65260958904206,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5691468999998506,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8494541000000027,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.8050908000000163,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.2711452000000918,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.656244499999957,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.36722179999992477,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5396451000001434,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.6176276999999573,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26758429999995315,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8249456000000919,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.20121599999993123,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5374142000000575,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4814810000000307,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3501655000000028,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6690204999999878,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5425020999998651,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.19247570000015912,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24764209999989362,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5491822000001321,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24036399999999958,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5214028000000326,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.34754689999999755,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.12027830000010908,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.32487859999991997,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3157722000000831,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 1.0148996000000352,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.42753250000009757,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2694126999999753,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6762813000000278,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2849877999999535,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.2,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 54.502648630136406,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6068153999999595,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.9502173000000766,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.8637650000000576,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.4635156000001643,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.6782587000000149,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.39148499999987507,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5724181999999018,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.6090584000000945,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.28376830000001974,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8540571999999429,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.2566217000000961,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5501323999999386,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.43506349999984195,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3155890000000454,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6420484000000215,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5903031000000283,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.2109563999999864,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2931641000000127,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6223359999999047,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24944379999988087,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5431671999999708,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.35932019999995646,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.1365109000000757,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3372143999999935,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.28239239999993515,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 1.175139100000024,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.5089257999998154,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.262263300000086,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6123343000001569,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2584882999999536,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.5,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 50.93775719178074,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5604478000000199,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8941109999998389,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.8362345999998979,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.2966321999999764,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.670539799999915,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3824724999999489,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5862822999999935,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.6228172000000995,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.28881090000004406,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8561884999999165,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.215730399999984,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5279187000001002,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4281227999999828,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.35078410000005533,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6968557999998666,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5579230999999254,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.1888485000001765,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.2715820999999323,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.557866200000035,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.284861299999875,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.43456209999999373,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.32800990000009733,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.14629009999998743,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3041259000001446,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2653060000000096,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9220143000000007,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.3792309000000387,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.20236429999999928,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.5668322999999873,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.250059500000134,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 0.8,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 51.10482431506834,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6734661000000415,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8856574999999793,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.7872902000000295,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.400233999999955,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.6435535000000527,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3584784000000809,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5367586999999503,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.55076889999998,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26823320000005424,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8035350000000108,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.22074069999996482,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5336549999999534,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4060570999999982,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2963792000000467,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6208313000000771,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5259697000000187,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.17559209999990344,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24306239999998525,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.6110153999999284,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24398709999991297,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.5402451999999585,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3580460000000585,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.12272510000002512,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3067297000000053,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2840919999999869,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9870449000000008,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.45254350000004706,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24487629999998717,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6029022000000168,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23813829999994596,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 1.2,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.938989519315903,
+        "decision_ms": 47.56271541095526,
+        "rollout_hit": 0.976027397260274,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5082096999999521,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8113742999998976,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.6920167999999194,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 22,
+            "spl": 0.8186682712753464,
+            "seconds": 1.2344394999997803,
+            "hits": 17,
+            "decisions": 22
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.6088481000001593,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.4072817999999643,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.5829798999998275,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.5145669000000908,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26126320000003034,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.746373000000176,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.1705456999998205,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4114614000000074,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.4214310999998361,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.31589039999994384,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.6163040000001274,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5204360999998698,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.17693759999997383,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.21289419999993697,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.45181349999984377,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.21522559999993973,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.49602059999983794,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.4253366000000369,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.11707000000001244,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3688973000000715,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2746309999999994,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9333569999998872,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.35738790000004883,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.1962065000000166,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.533513899999889,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.3055993000000399,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      },
+      {
+        "value": 2.0,
+        "success": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ],
+        "spl": 0.9414519575186787,
+        "decision_ms": 48.440429999998834,
+        "rollout_hit": 0.9793103448275862,
+        "g_f1": 1.0,
+        "trials": [
+          {
+            "case": 0,
+            "start": 2,
+            "goal": 66,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.7500076999999692,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 1,
+            "start": 66,
+            "goal": 2,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7337375550217459,
+            "seconds": 0.8873363000000154,
+            "hits": 14,
+            "decisions": 15
+          },
+          {
+            "case": 2,
+            "start": 7,
+            "goal": 23,
+            "success": true,
+            "steps": 13,
+            "spl": 0.8521656657339883,
+            "seconds": 0.643320200000062,
+            "hits": 13,
+            "decisions": 13
+          },
+          {
+            "case": 3,
+            "start": 12,
+            "goal": 19,
+            "success": true,
+            "steps": 20,
+            "spl": 0.8925414173586205,
+            "seconds": 1.0493441999999504,
+            "hits": 16,
+            "decisions": 20
+          },
+          {
+            "case": 4,
+            "start": 66,
+            "goal": 40,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8433756605538217,
+            "seconds": 0.587829900000088,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 5,
+            "start": 53,
+            "goal": 27,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.3383503000000019,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 6,
+            "start": 29,
+            "goal": 56,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.48801989999992657,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 7,
+            "start": 6,
+            "goal": 61,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8330852431404263,
+            "seconds": 0.5298709999999573,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 8,
+            "start": 63,
+            "goal": 2,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.26320319999990716,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 9,
+            "start": 53,
+            "goal": 28,
+            "success": true,
+            "steps": 15,
+            "spl": 0.7484052072913998,
+            "seconds": 0.8740370000000439,
+            "hits": 15,
+            "decisions": 15
+          },
+          {
+            "case": 10,
+            "start": 42,
+            "goal": 72,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.19458669999994527,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 11,
+            "start": 66,
+            "goal": 28,
+            "success": true,
+            "steps": 10,
+            "spl": 1.0,
+            "seconds": 0.4853017999998883,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 12,
+            "start": 6,
+            "goal": 19,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.44315800000003946,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 13,
+            "start": 6,
+            "goal": 64,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.2777803999999833,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 14,
+            "start": 2,
+            "goal": 27,
+            "success": true,
+            "steps": 12,
+            "spl": 0.8411611080546653,
+            "seconds": 0.5013232000001153,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 15,
+            "start": 12,
+            "goal": 5,
+            "success": true,
+            "steps": 11,
+            "spl": 0.8257166968030134,
+            "seconds": 0.5125461999998606,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 16,
+            "start": 2,
+            "goal": 18,
+            "success": true,
+            "steps": 5,
+            "spl": 1.0,
+            "seconds": 0.16850939999994807,
+            "hits": 5,
+            "decisions": 5
+          },
+          {
+            "case": 17,
+            "start": 66,
+            "goal": 34,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.27501630000006116,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 18,
+            "start": 28,
+            "goal": 19,
+            "success": true,
+            "steps": 11,
+            "spl": 1.0,
+            "seconds": 0.5049798999998529,
+            "hits": 11,
+            "decisions": 11
+          },
+          {
+            "case": 19,
+            "start": 41,
+            "goal": 11,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.21712159999992764,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 20,
+            "start": 72,
+            "goal": 26,
+            "success": true,
+            "steps": 10,
+            "spl": 0.79267834052036,
+            "seconds": 0.49010470000007444,
+            "hits": 10,
+            "decisions": 10
+          },
+          {
+            "case": 21,
+            "start": 14,
+            "goal": 2,
+            "success": true,
+            "steps": 8,
+            "spl": 1.0,
+            "seconds": 0.41818030000013096,
+            "hits": 8,
+            "decisions": 8
+          },
+          {
+            "case": 22,
+            "start": 41,
+            "goal": 7,
+            "success": true,
+            "steps": 4,
+            "spl": 1.0,
+            "seconds": 0.14674829999989925,
+            "hits": 4,
+            "decisions": 4
+          },
+          {
+            "case": 23,
+            "start": 56,
+            "goal": 0,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.3424746000000596,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 24,
+            "start": 10,
+            "goal": 55,
+            "success": true,
+            "steps": 7,
+            "spl": 1.0,
+            "seconds": 0.25457299999993666,
+            "hits": 7,
+            "decisions": 7
+          },
+          {
+            "case": 25,
+            "start": 19,
+            "goal": 0,
+            "success": true,
+            "steps": 17,
+            "spl": 0.8806918310823248,
+            "seconds": 0.9053826000001663,
+            "hits": 16,
+            "decisions": 17
+          },
+          {
+            "case": 26,
+            "start": 29,
+            "goal": 13,
+            "success": true,
+            "steps": 9,
+            "spl": 1.0,
+            "seconds": 0.35995630000002166,
+            "hits": 9,
+            "decisions": 9
+          },
+          {
+            "case": 27,
+            "start": 7,
+            "goal": 10,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.23678479999989577,
+            "hits": 6,
+            "decisions": 6
+          },
+          {
+            "case": 28,
+            "start": 6,
+            "goal": 38,
+            "success": true,
+            "steps": 12,
+            "spl": 1.0,
+            "seconds": 0.6583250999999564,
+            "hits": 12,
+            "decisions": 12
+          },
+          {
+            "case": 29,
+            "start": 4,
+            "goal": 18,
+            "success": true,
+            "steps": 6,
+            "spl": 1.0,
+            "seconds": 0.24355179999997745,
+            "hits": 6,
+            "decisions": 6
+          }
+        ]
+      }
+    ]
+  }
+}
